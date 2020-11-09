@@ -16,15 +16,13 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        // $q = DB::table('students')
-        // ->join('attendances', function ($join) {
-        //     $join->on('students.id', '=', 'attendances.student_id');
-        // })
-        // ->get();
+        $q = DB::table('students')
+        ->join('attendances', function ($join) {
+            $join->on('students.id', '=', 'attendances.student_id');
+        })
+        ->get();
 
-        $q = student::all();
-            $qq = $q->get();
-        return $qq; 
+        return $q;
 
         // return attendance::Rightjoin('students','students.id','=', 'attendances.student_id')
         // ->Rightjoin('i_classes','i_classes.id','=','attendances.class_id')
